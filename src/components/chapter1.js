@@ -3,6 +3,8 @@
  */
 import React, { Component} from 'react'
 
+import '../styles/chapters.css';
+
 const locations = {
     "China" : {"lat":35.861660, "lng": 104.195397},
     "Japan" : {"lat":36.204824, "lng": 138.252924},
@@ -33,13 +35,7 @@ export default class Chapter1 extends Component {
     render() {
         const onClick = this.updateLocation;
         return (
-            <div style={ {
-                padding: "16",
-                border: "1 solid rgb(115, 115, 115)",
-                color: "rgb(115, 115, 115)",
-                display: "flex",
-                overflow: "auto"
-            }}>
+            <div className="text-container">
                 <span>From the Boundless Deep
 MILLIONS UPON MILLIONS of years ago, when the continents were already formed and the principal features of the earth had been decided, there existed, then as now, one aspect of the world that dwarfed all others. Jt was a mighty ocean, resting uneasily to the east of the largest continent, a restless ever-changing, gigantic body of water that would later be described as pacific.
 Over its brooding surface immense winds swept back and forth, whipping the waters into towering waves that crashed down upon the world's seacoasts, tearing away rocks and eroding the land. In its dark bosom, strange life was beginning to form, minute at first, then gradually of a structure now lost even to memory. Upon its farthest reaches birds with enormous wings came to rest, and then flew on.
