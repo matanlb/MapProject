@@ -5,6 +5,8 @@ import React, { Component } from 'react'
 
 import { locations1, locations2 } from '../data/locations';
 
+import '../styles/locations.css';
+
 export default class Locations extends Component {
 
     updateLocation(location) {
@@ -14,7 +16,7 @@ export default class Locations extends Component {
 
     renderLocations(locations) {
       const locationViews = [];
-      for (const location of locations) {
+      for (const location of Object.values(locations)) {
         const onClick = () => this.updateLocation(location);
         locationViews.push(
           <p key={location.name}>
@@ -22,16 +24,12 @@ export default class Locations extends Component {
           </p>
         );
       }
+      return locationViews;
     }
 
     render() {
         return (
-            <div style={ {
-                padding: "16",
-                border: "1 solid rgb(115, 115, 115)",
-                color: "rgb(115, 115, 115)",
-                overflow: "auto"
-            }}>
+            <div className="container">
                 <h3><b> Chapter 1 - From the Boundless Deep </b></h3>
                 <div>
                   {this.renderLocations(locations1)}

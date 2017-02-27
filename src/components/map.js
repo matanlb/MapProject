@@ -20,8 +20,8 @@ export default class Map extends Component {
             <GoogleMap
                 defaultCenter={{lat, lng}}
                 defaultZoom={zoom}>
-                <Places lat={lat} lng={lng} text={'A'}/>
-                <Places lat={31.261447} lng={35.214862} text={'B'}/>
+                <Places lat={lat} lng={lng} />
+                <Places lat={31.261447} lng={35.214862} text={'B'} />
             </GoogleMap>
 
         );

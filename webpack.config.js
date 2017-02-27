@@ -18,13 +18,19 @@ var config = {
                 test: /\.jsx?$/,
                 include: SRC_DIR,
                 loader: "babel!babel-loader",
-                exclude: path.resolve(ROOT_APP, 'node_modules')
+                exclude: [
+                    path.resolve(ROOT_APP, 'node_modules'),
+                    path.resolve(SRC_DIR, 'styles')
+                ]
             },
             {
                 test: /\.css$/,
-                include: path.resolve(ROOT_APP, 'node_modules','react-tab-panel'),
+                include: [
+                    path.resolve(ROOT_APP, 'node_modules', 'react-tab-panel'),
+                    path.resolve(SRC_DIR, 'styles')
+                ],
                 loader: "style!css"
-            }
+            },
         ],
     },
     // resolveLoader: {

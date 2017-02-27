@@ -1,0 +1,6 @@
+.text-container {
+  padding: 16px;
+  color: rgb(115, 115, 115);
+  display: flex;
+  overflow: auto;
+}
