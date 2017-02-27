@@ -6,22 +6,27 @@ import Places from './greatPlaces';
 
 import GoogleMap from 'google-map-react';
 
-
-
 export default class Map extends Component {
 
     constructor(props) {
         super(props);
     }
 
+    renderLocations() {
+        const markers = [];
+        for (const marker of this.props.markers) {
+            markers.push(<Places key={marker.lat.toString()} lat={marker.lat} lng={marker.lng} />);
+        }
+        return markers
+    }
+
     render() {
-        const {lat, lng, zoom} = this.props;
+        const { defaultCenter, zoom } = this.props;
         return (
             <GoogleMap
-                defaultCenter={{lat, lng}}
+                center={{ lat: defaultCenter.lat, lng: defaultCenter.lng }}
                 defaultZoom={zoom}>
-                <Places lat={lat} lng={lng} />
-                <Places lat={31.261447} lng={35.214862} text={'B'} />
+                {this.renderLocations()}
             </GoogleMap>
 
         );

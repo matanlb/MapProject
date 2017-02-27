@@ -10,7 +10,7 @@ import 'react-tab-panel/theme/default.css';
 import '../styles/main.css';
 
 // FlexBox only supports inline style and not className
-const flexBoxStyle = { marginTop: '10' };
+const flexBoxStyle = { marginTop: '10px' };
 const flexItemHeaderStyle = {
     background: '#F4A460',
     height: '120px',
@@ -37,7 +37,6 @@ export default class App extends Component {
     }
 
     render() {
-        console.log("lng is: " +  this.props.lng);
         return (
           <FlexBox style={flexBoxStyle} flexDirection="column">
               <FlexItem style={flexItemHeaderStyle}>
@@ -62,16 +61,20 @@ export default class App extends Component {
                                       <Chapter1 tabTitle="Chapter 4" />
                                       <Chapter1 tabTitle="Chapter 5" />
                                       <Chapter1 tabTitle="Chapter 6" />
-                                      <Locations tabTitle="Locations" setLocation={this.props.setLocation} />
+                                      <Locations
+                                        tabTitle="Locations"
+                                        setLocation={this.props.setLocation}
+                                        setMarkers={this.props.setMarkers}
+                                      />
                                   </TabBody>
                               </TabPanel>
                           </div>
                       </FlexItem>
                       <FlexItem id="map" style={flexItemMapStyle}>
                           <Map
-                            key={this.props.lng.toFixed()}
-                            lat={this.props.lat}
-                            lng={this.props.lng}
+                            key={this.props.mapCenter.lng.toFixed()}
+                            defaultCenter={this.props.mapCenter}
+                            markers={this.props.markers}
                             zoom={9}
                           />
                       </FlexItem>

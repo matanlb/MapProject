@@ -22,31 +22,3 @@ export const Arabia = { lat: 23.885942, lng: 45.079162, name: 'Arabia' };
 export const NukuHiva = { lat: -8.860481, lng: -140.142088, name: 'Nuku Hiva' };
 export const SouthernCross = { lat: -31.230556, lng: 119.327778, name: 'Southern Cross' };
 export const NewGuinea = { lat: -5.012220, lng: 141.347016, name: 'NewGuinea' };
-
-export const locations1 = {
-  China,
-  Japan,
-  Jerusalem,
-  England,
-  India,
-  Boston,
-  Philippines,
-  BoraBora,
-  MountFuji,
-};
-
-export const locations2 = {
-  Tahiti,
-  BoraBora,
-  Paris,
-  Moorea,
-  NukuHiva,
-  Tapoa,
-  SouthernCross,
-  Portugal,
-  Madeira,
-  Azores,
-  Arabia,
-  India,
-  NewGuinea,
-};

@@ -3,15 +3,18 @@
  */
 import React, { Component } from 'react'
 
-import { locations1, locations2 } from '../data/locations';
+import * as Chapters from '../data/chapters';
 
 import '../styles/locations.css';
 
 export default class Locations extends Component {
+    updateMarkers(locations) {
+      this.props.setMarkers(...locations);
+    }
 
     updateLocation(location) {
+      this.props.setMarkers(location);
       this.props.setLocation(location.lat, location.lng);
-      return false
     }
 
     renderLocations(locations) {
@@ -20,24 +23,33 @@ export default class Locations extends Component {
         const onClick = () => this.updateLocation(location);
         locationViews.push(
           <p key={location.name}>
-            <a href="#" onClick={onClick}> {location.name} </a>
+            <a href='#' onClick={onClick}> {location.name} </a>
           </p>
         );
       }
+
       return locationViews;
+    }
+
+    renderChapter(chapter) {
+      const onClick = () => this.updateMarkers(chapter.locations);
+      return (
+        <div>
+          <span>
+            <h3><a href='#' onClick={onClick}> {chapter.title} </a></h3>
+          </span>
+          <div>
+            {this.renderLocations(chapter.locations)}
+          </div>
+        </div>
+      )
     }
 
     render() {
         return (
             <div className="container">
-                <h3><b> Chapter 1 - From the Boundless Deep </b></h3>
-                <div>
-                  {this.renderLocations(locations1)}
-                </div>
-                <h3><b> Chapter 2 - From the Sun-Swept Lagoon </b></h3>
-                <div>
-                  {this.renderLocations(locations2)}
-                </div>
+              {this.renderChapter(Chapters.Chapter1)}
+              {this.renderChapter(Chapters.Chapter2)}
             </div>
         )
     }
