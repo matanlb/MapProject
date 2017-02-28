@@ -36,7 +36,8 @@ export default class Locations extends Component {
       return (
         <div>
           <span>
-            <h3><a href='#' onClick={onClick}> {chapter.title} </a></h3>
+              <h3><b> {chapter.title} </b></h3>
+              <button onClick={onClick}> All Locations </button>
           </span>
           <div>
             {this.renderLocations(chapter.locations)}
