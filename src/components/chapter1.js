@@ -26,7 +26,6 @@ export default class Chapter1 extends Component {
     }
 
     updateLocation(e){
-        console.log("In UpdateLocation");
         var location =  locations[e.target.innerText.trim()];
         this.props.setLocation(location.lat, location.lng);
         return false;

@@ -75,7 +75,7 @@ export default class App extends Component {
                             key={this.props.mapCenter.lng.toFixed()}
                             defaultCenter={this.props.mapCenter}
                             markers={this.props.markers}
-                            zoom={9}
+                            zoom={this.props.zoom}
                           />
                       </FlexItem>
                   </FlexBox>

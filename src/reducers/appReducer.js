@@ -1,11 +1,12 @@
 /**
  * Created by Liat Gofstein on 1/1/2017.
  */
-import { SET_LOCATION, SET_MARKERS } from '../actions';
+import { SET_LOCATION, SET_MARKERS, SET_ZOOM } from '../actions';
 
 const DEFAULT_STATE = {
     currentLocation: { lat: 31.046051, lng: 34.851612 },
     markers: [],
+    zoom: 9,
 };
 
 
@@ -20,8 +21,10 @@ const appReducer = (state = DEFAULT_STATE, action) => {
             });
         case SET_MARKERS:
             return Object.assign({}, state, { markers: action.payload });
+        case SET_ZOOM:
+            return Object.assign({}, state, { zoom: action.payload });
         default:
-            return state
+            return state;
     }
 };
 

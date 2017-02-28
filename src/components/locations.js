@@ -9,7 +9,7 @@ import '../styles/locations.css';
 
 export default class Locations extends Component {
     updateMarkers(locations) {
-      this.props.setMarkers(...locations);
+      this.props.setMarkers(locations, 1);
     }
 
     updateLocation(location) {

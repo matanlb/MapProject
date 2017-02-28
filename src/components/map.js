@@ -25,7 +25,8 @@ export default class Map extends Component {
         return (
             <GoogleMap
                 center={{ lat: defaultCenter.lat, lng: defaultCenter.lng }}
-                defaultZoom={zoom}>
+                zoom={zoom}
+            >
                 {this.renderLocations()}
             </GoogleMap>
 
