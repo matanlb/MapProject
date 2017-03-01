@@ -2,8 +2,7 @@
  * Created by Liat Gofstein on 1/1/2017.
  */
 import {connect} from 'react-redux';
-import isNil from 'lodash.isnil';
-import castArray from 'lodash.castarray';
+import _ from 'lodash';
 
 import App from '../components/App';
 import  { setCurrentLocation, setMapMarkers, setMapZoom } from '../actions'
@@ -14,8 +13,8 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(setMapZoom(zoom));
     },
     setMarkers(locations, zoom) {
-        dispatch(setMapMarkers(castArray(locations)));
-        !isNil(zoom) && dispatch(setMapZoom(zoom));
+        dispatch(setMapMarkers(_.castArray(locations)));
+        !_.isNil(zoom) && dispatch(setMapZoom(zoom));
     },
 });
 

@@ -2,6 +2,7 @@
  * Created by Liat Gofstein on 1/29/2017.
  */
 import React, { Component } from 'react'
+import _ from 'lodash';
 
 import * as Chapters from '../data/chapters';
 
@@ -12,15 +13,16 @@ export default class Locations extends Component {
       this.props.setMarkers(locations, 1);
     }
 
-    updateLocation(location) {
+    updateLocation(e, location) {
+      e.preventDefault();
       this.props.setMarkers(location);
       this.props.setLocation(location.lat, location.lng);
     }
 
     renderLocations(locations) {
       const locationViews = [];
-      for (const location of Object.values(locations)) {
-        const onClick = () => this.updateLocation(location);
+      for (const location of _.values(locations)) {
+        const onClick = (e) => this.updateLocation(e, location);
         locationViews.push(
           <p key={location.name}>
             <a href='#' onClick={onClick}> {location.name} </a>
@@ -34,7 +36,7 @@ export default class Locations extends Component {
     renderChapter(chapter) {
       const onClick = () => this.updateMarkers(chapter.locations);
       return (
-        <div>
+        <div key={chapter.title}>
           <span>
               <h3><b> {chapter.title} </b></h3>
               <button onClick={onClick}> All Locations </button>
@@ -47,10 +49,15 @@ export default class Locations extends Component {
     }
 
     render() {
+        const chaptersView = _.chain(Chapters)
+          .values()
+          .filter(chapter => !_.isEmpty(chapter.locations))
+          .map(this.renderChapter.bind(this))
+          .value();
+
         return (
             <div className="container">
-              {this.renderChapter(Chapters.Chapter1)}
-              {this.renderChapter(Chapters.Chapter2)}
+              {chaptersView}
             </div>
         )
     }

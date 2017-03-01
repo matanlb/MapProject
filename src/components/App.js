@@ -1,9 +1,12 @@
 import React, { Component} from 'react';
-import Chapter1 from './chapter1';
-import Locations from './locations';
 import TabPanel, { TabBody, TabStrip } from 'react-tab-panel';
 import { FlexBox, FlexItem } from 'react-layouts';
+import _ from 'lodash';
+
+import Chapter from './chapter';
 import Map from './map';
+import Locations from './locations';
+import * as Chapters from '../data/chapters';
 
 import 'react-tab-panel/base.css';
 import 'react-tab-panel/theme/default.css';
@@ -36,6 +39,18 @@ export default class App extends Component {
         super(props);
     }
 
+    renderChapterTabs() {
+        return _.map(Chapters, chapter => (
+          <Chapter
+            key={chapter.tabTitle}
+            tabTitle={chapter.tabTitle}
+            chapter={chapter}
+            setLocation={this.props.setLocation}
+            setMarkers={this.props.setMarkers}
+          />
+        ))
+    }
+
     render() {
         return (
           <FlexBox style={flexBoxStyle} flexDirection="column">
@@ -54,13 +69,7 @@ export default class App extends Component {
                               <TabPanel tabAlign="start">
                                   <TabStrip style={tabStripStyle} />
                                   <TabBody style={tabBodyStyle}>
-                                      <Chapter1 tabTitle="Introduction" setLocation={this.props.setLocation}/>
-                                      <Chapter1 tabTitle="Chapter 1" />
-                                      <Chapter1 tabTitle="Chapter 2" />
-                                      <Chapter1 tabTitle="Chapter 3" />
-                                      <Chapter1 tabTitle="Chapter 4" />
-                                      <Chapter1 tabTitle="Chapter 5" />
-                                      <Chapter1 tabTitle="Chapter 6" />
+                                      {this.renderChapterTabs()}
                                       <Locations
                                         tabTitle="Locations"
                                         setLocation={this.props.setLocation}
