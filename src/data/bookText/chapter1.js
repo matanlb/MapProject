@@ -1,5 +1,5 @@
 /**
- * Created by matan on 2/28/17.
+ * Created by Liat Gofstein on 2/28/17.
  */
 export default `From the Boundless Deep
 MILLIONS UPON MILLIONS of years ago, when the continents were already formed and the principal features of the earth had been decided, there existed, then as now, one aspect of the world that dwarfed all others. Jt was a mighty ocean, resting uneasily to the east of the largest continent, a restless ever-changing, gigantic body of water that would later be described as pacific.

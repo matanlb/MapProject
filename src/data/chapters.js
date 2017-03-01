@@ -1,5 +1,5 @@
 /**
- * Created by matan on 2/27/17.
+ * Created by Liat Gofstein on 2/27/17.
  */
 import * as Locations from './locations';
 import * as BookText from './bookText';

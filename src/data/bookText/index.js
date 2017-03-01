@@ -1,5 +1,5 @@
 /**
- * Created by matan on 2/28/17.
+ * Created by Liat Gofstein on 2/28/17.
  */
 export { default as  Introduction } from './intro';
 export { default as Chapter1 } from './chapter1';
