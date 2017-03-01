@@ -82,7 +82,7 @@ export default class App extends Component {
                       <FlexItem id="map" style={flexItemMapStyle}>
                           <Map
                             key={this.props.mapCenter.lng.toFixed()}
-                            defaultCenter={this.props.mapCenter}
+                            center={this.props.mapCenter}
                             markers={this.props.markers}
                             zoom={this.props.zoom}
                           />

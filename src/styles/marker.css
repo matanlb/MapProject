@@ -16,3 +16,13 @@
   align-items: center;
   justify-content: center;
 }
+
+.tool-tip {
+  position: absolute;
+  margin-top: 28px;
+  white-space: nowrap;
+  padding: 5px;
+  border-radius: 20px;
+  background: #0090FF;
+  color: #FFF;
+}
