@@ -19,14 +19,14 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = (state) => ({
-    mapCenter: state.appReducer.currentLocation,
-    markers: state.appReducer.markers,
-    zoom: state.appReducer.zoom,
+    mapCenter: state.mapState.currentLocation,
+    markers: state.mapState.markers,
+    zoom: state.mapState.zoom,
 });
 
 const Main = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(App);
 
-export default Main
+export default Main;

@@ -2,6 +2,8 @@
  * Created by Liat Gofstein on 12/31/2016.
  */
 import React, { Component} from 'react';
+import _ from 'lodash';
+
 import Places from './greatPlaces';
 
 import GoogleMap from 'google-map-react';
@@ -13,11 +15,8 @@ export default class Map extends Component {
     }
 
     renderLocations() {
-        const markers = [];
-        for (const marker of this.props.markers) {
-            markers.push(<Places key={marker.lat.toString()} lat={marker.lat} lng={marker.lng} />);
-        }
-        return markers
+        return _.map(this.props.markers, marker =>
+          <Places key={marker.lat.toString()} lat={marker.lat} lng={marker.lng} />);
     }
 
     render() {

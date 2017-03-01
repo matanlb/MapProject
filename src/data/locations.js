@@ -21,4 +21,4 @@ export const Azores = { lat: 37.741249, lng: -25.675594, name: 'Azores' };
 export const Arabia = { lat: 23.885942, lng: 45.079162, name: 'Arabia' };
 export const NukuHiva = { lat: -8.860481, lng: -140.142088, name: 'Nuku Hiva' };
 export const SouthernCross = { lat: -31.230556, lng: 119.327778, name: 'Southern Cross' };
-export const NewGuinea = { lat: -5.012220, lng: 141.347016, name: 'NewGuinea' };
+export const NewGuinea = { lat: -5.012220, lng: 141.347016, name: 'New Guinea' };

@@ -33,7 +33,7 @@ export default class Chapter extends Component {
         const analysis = [];
         let startIndex = 0;
         let match =  text.match(locationRegex);
-        while(!!match) {
+        while(!_.isNil(match)) {
             analysis.push({ index: match.index + startIndex, name: match[0] });
             startIndex += match.index + match[0].length;
             text = text.substring(match.index + match[0].length);
@@ -85,24 +85,21 @@ export default class Chapter extends Component {
         const { textAnalysis } = this.state;
         const { chapter: { text } } = this.props;
 
-        const textSpans = [];
-        let key = 0;
         let currentIndex = 0;
-        let analysisIndex = 0;
-
-        while (currentIndex < text.length) {
-            const locationIndex = _.get(textAnalysis, analysisIndex, {});
-            if (currentIndex === locationIndex.index) {
-                textSpans.push(this.renderLink(key++, locationIndex));
-                ++analysisIndex;
-                currentIndex += locationIndex.name.length;
-            } else {
+        const textSpans = _.reduce(textAnalysis, (spans, locationIndex) => {
+            if (currentIndex !== locationIndex.index) {
                 const substring = text.substring(currentIndex, locationIndex.index);
-                textSpans.push(<span key={key++}>{substring}</span>);
+                spans.push(<span key={currentIndex}>{substring}</span>);
                 currentIndex += substring.length;
             }
-        }
 
+            spans.push(this.renderLink(currentIndex, locationIndex));
+            currentIndex += locationIndex.name.length;
+            return spans;
+        }, []);
+
+        // Push in ending the text, after the last link
+        textSpans.push(<span key={currentIndex}>{text.substring(currentIndex)}</span>);
         return textSpans;
     }
 

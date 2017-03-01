@@ -20,17 +20,14 @@ export default class Locations extends Component {
     }
 
     renderLocations(locations) {
-      const locationViews = [];
-      for (const location of _.values(locations)) {
+      return _.map(locations, location => {
         const onClick = (e) => this.updateLocation(e, location);
-        locationViews.push(
+        return (
           <p key={location.name}>
             <a href='#' onClick={onClick}> {location.name} </a>
           </p>
         );
-      }
-
-      return locationViews;
+      });
     }
 
     renderChapter(chapter) {
